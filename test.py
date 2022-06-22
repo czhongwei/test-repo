@@ -1,20 +1,16 @@
-class Counter:
-    def __init__(self, start, end):
-        self.num = start
-        self.end = end
- 
-    def __iter__(self):
-        return self
- 
-    def __next__(self):
-        if self.num > self.end:
-            raise StopIteration
-        else:
-            self.num += 1
-            return self.num - 1
+import unittest
+from fractions import Fraction
+from test_dir import sum
 
-print(this.__name__)
+class TestSum(unittest.TestCase):
+    def test_list_int(self):
+        data = [1,2,3]
+        result = sum(data)
+        self.assertEqual(result, 6)
 
-
+    def test_list_fraction(self):
+        data = [Fraction(1,4), Fraction(1,4), Fraction(2,5)]
+        result = sum(data)
+        self.assertEqual(result, Fraction(4, 5))
 if __name__ == "__main__":
-  print(__name__)
+    unittest.main()
